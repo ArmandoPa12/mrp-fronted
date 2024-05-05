@@ -1,4 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
+import "primereact/resources/themes/lara-light-indigo/theme.css";
 
 const Layout = () => {
   return (

@@ -5,8 +5,10 @@ import { BrowserRouter,
   Route,
   Switch,
   Link } from 'react-router-dom';
-import Prueba from './pages/prueba';
+
+
 import Layout from './pages/layout';
+import Prueba from './pages/prueba';
 
 function App() {
   return (

@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+
 import { Dropdown } from 'primereact/dropdown';
+import { Button } from 'primereact/button';
+import { Chips } from 'primereact/chips';
 
 
 const Prueba = () => {
-    const [character, setCharacter] = useState(null);
-    const [selectedCity, setSelectedCity] = useState(null);
+    
+  const [character, setCharacter] = useState(null);
+
+  const [value, setValue] = useState([]);
+
+
+  const [selectedCity, setSelectedCity] = useState(null);
+
     const cities = [
         { name: 'New York', code: 'NY' },
         { name: 'Rome', code: 'RM' },
@@ -24,7 +33,6 @@ const Prueba = () => {
         console.error('Error fetching character:', error);
       }
     };
-
     fetchCharacter();
   }, []);
 
@@ -32,9 +40,7 @@ const Prueba = () => {
 
   return (
     <div>
-        
-
-
+      
       {character ? (
         <div>
           <h2>{character.name}</h2>
@@ -50,11 +56,21 @@ const Prueba = () => {
         <p>Loading...</p>
       )}
 
+
+
+
         <div className="card flex justify-content-center">
             <Dropdown value={selectedCity} onChange={(e) => setSelectedCity(e.value)} options={cities} optionLabel="name" 
                 placeholder="Select a City" className="w-full md:w-14rem" />
         </div>                 
 
+        <div className="card flex justify-content-center">
+            <Button label="Check" icon="pi pi-check" />
+        </div>
+
+        <div className="card p-fluid">
+            <Chips value={value} onChange={(e) => setValue(e.value)} />
+        </div>
 
     </div>
   );
